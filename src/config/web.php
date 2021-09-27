@@ -1,5 +1,8 @@
 <?php
 
+use app\service\NewsUserService;
+use app\repository\NewsRepository;
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -51,6 +54,10 @@ $config = [
             ],
         ],
         */
+        'definitions' => [
+            'class' => NewsUserService::class,
+            'class' => NewsRepository::class,
+        ],
     ],
     'params' => $params,
 ];

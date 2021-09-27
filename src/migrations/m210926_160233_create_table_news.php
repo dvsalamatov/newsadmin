@@ -24,6 +24,7 @@ class m210926_160233_create_table_news extends Migration
 
         $this->createTable(self::TABLE_NEWS_NAME, [
             'id' => $this->primaryKey(),
+            'header' => $this->string(),
             'content' => $this->text(),
             'user_id' => $this->integer()->notNull(),
             'created_at' => $this->integer()->notNull(),
