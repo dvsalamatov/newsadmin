@@ -1,0 +1,24 @@
+name: PHPCS check
+
+on: pull_request
+
+jobs:
+  phpcs:
+    name: PHPCS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v13.1
+        with:
+          files: |
+            **.php
+      - name: Install Composer dependencies
+        if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
+        run: |
+          composer install --no-progress --prefer-dist --optimize-autoloader
+      - name: PHPCS check
+        if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
+        run: ./vendor/bin/phpcs ${{ steps.changed-files.outputs.all_changed_files }}
