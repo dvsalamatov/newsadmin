@@ -13,8 +13,8 @@ jobs:
         with:
           enable_warnings: true
       - name: Get changed files
-          id: changed-files
-          uses: tj-actions/changed-files@v13.1
-          with:
-            files: |
-              **.php
+        id: changed-files
+        uses: tj-actions/changed-files@v13.1
+        with:
+          files: |
+            **.php
