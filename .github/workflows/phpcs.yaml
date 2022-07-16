@@ -16,7 +16,9 @@ jobs:
           files: |
             **.php
       - name: Install Composer dependencies
+        if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         run: |
           composer install --no-progress --prefer-dist --optimize-autoloader
       - name: PHPCS check
+        if: ${{ steps.changed-files.outputs.all_changed_files != '' }}
         run: ./vendor/bin/phpcs ${{ steps.changed-files.outputs.all_changed_files }}
