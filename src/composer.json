@@ -45,6 +45,8 @@
     "scripts": {
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
+        "cs-commit-check": "git diff --name-only --diff-filter=AM origin/master | grep .php | xargs composer cs-check",
+        "cs-commit-fix": "git diff --name-only --diff-filter=AM origin/master | grep .php | xargs composer cs-fix",
         "post-install-cmd": [
             "yii\\composer\\Installer::postInstall"
         ],
