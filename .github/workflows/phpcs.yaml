@@ -5,7 +5,6 @@ on: pull_request
 jobs:
   phpcs:
     name: PHPCS
-    run: ./vendor/bin/phpcs ${{ steps.changed-files.outputs.all_changed_files }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
