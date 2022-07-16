@@ -8,7 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: PHPCS check ./src
+      - name: PHPCS check
         uses: chekalsky/phpcs-action@v1
         with:
+          files: |
+            **.php
           enable_warnings: true
