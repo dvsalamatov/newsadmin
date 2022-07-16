@@ -16,4 +16,4 @@ jobs:
           files: |
             **.php
       - name: PHPCS check
-        run: ./vendor/bin/phpcs ${{ steps.changed-files.outputs.all_changed_files }}
+        run: .src/vendor/bin/phpcs ${{ steps.changed-files.outputs.all_changed_files }}
