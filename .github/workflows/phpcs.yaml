@@ -11,6 +11,10 @@ jobs:
       - name: PHPCS check
         uses: chekalsky/phpcs-action@v1
         with:
-          files: |
-            **.php
           enable_warnings: true
+      - name: Get changed files
+          id: changed-files
+          uses: tj-actions/changed-files@v13.1
+          with:
+            files: |
+              **.php
