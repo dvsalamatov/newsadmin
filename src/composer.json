@@ -43,6 +43,7 @@
         }
     },
     "scripts": {
+        "cs-check-report": "phpcs --report=checkstyle",
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
         "cs-commit-check": "git diff --name-only --diff-filter=AM origin/master | grep .php | xargs composer cs-check",
